@@ -8,6 +8,7 @@
 /Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/LTMKarur.runtimeconfig.json
 /Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/LTMKarur.dll
 /Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/LTMKarur.pdb
+/Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/BCrypt.Net-Next.dll
 /Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/Humanizer.dll
 /Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/vivek/Files/dotnet/LTMKarur/bin/Debug/net9.0/Microsoft.Build.Locator.dll
@@ -115,6 +116,7 @@
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/LTMKarur.MvcApplicationPartsAssemblyInfo.cache
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/LTMKarur.RazorAssemblyInfo.cache
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/LTMKarur.RazorAssemblyInfo.cs
+/Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/LTMKarur.sourcelink.json
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json

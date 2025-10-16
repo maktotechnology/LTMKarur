@@ -1,8 +1,18 @@
+using LTMKarur.Data;
+using LTMKarur.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using BCrypt.Net; // for password hashing
 
 var builder = WebApplication.CreateBuilder(args);
 
+// PostgreSQL connection
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddControllersWithViews();
+
+// Cookie Authentication
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
@@ -12,13 +22,36 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.SlidingExpiration = true;
     });
 
+builder.Services.AddAuthorization();
+
 var app = builder.Build();
+
+// ✅ Automatically migrate DB and seed default admin user
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    db.Database.Migrate();
+
+    // Seed default admin if missing
+    if (!db.Users.Any(u => u.Username == "admin"))
+    {
+        var hash = BCrypt.Net.BCrypt.HashPassword("admin");
+        db.Users.Add(new AppUser
+        {
+            Username = "admin",
+            PasswordHash = hash
+        });
+        db.SaveChanges();
+        Console.WriteLine("✅ Seeded default admin user (username: admin / password: admin)");
+    }
+}
 
 app.UseStaticFiles();
 app.UseRouting();
-
-app.UseAuthentication(); // MUST be before UseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
+
+// Optional: Prevent caching after logout
 app.Use(async (context, next) =>
 {
     context.Response.Headers["Cache-Control"] = "no-store, no-cache, must-revalidate";
@@ -27,7 +60,8 @@ app.Use(async (context, next) =>
     await next();
 });
 
-
-app.MapControllerRoute(name: "default", pattern: "{controller=Account}/{action=Login}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
