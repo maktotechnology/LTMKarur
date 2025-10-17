@@ -1,0 +1,45 @@
+@model LTMKarur.Models.ItemMaster
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Item Details";
+}
+
+<h4 class="mb-3">Item Details - <span class="text-primary">@Model.ItemName</span></h4>
+
+<fieldset class="border p-3 rounded mb-4">
+    <legend class="float-none w-auto px-2 fw-semibold text-primary">Technical Details</legend>
+    <div class="row g-3">
+        <div class="col-md-3"><strong>Warp Count:</strong> @Model.WarpCount</div>
+        <div class="col-md-3"><strong>Weft Count:</strong> @Model.WeftCount</div>
+        <div class="col-md-3"><strong>EPI:</strong> @Model.EPI</div>
+        <div class="col-md-3"><strong>PPI:</strong> @Model.PPI</div>
+        <div class="col-md-3"><strong>Design:</strong> @Model.Design</div>
+        <div class="col-md-3"><strong>Width:</strong> @Model.Width</div>
+        <div class="col-md-3"><strong>Crimp:</strong> @Model.Crimp</div>
+        <div class="col-md-3"><strong>Input:</strong> @Model.Input</div>
+        <div class="col-md-3"><strong>Read On Loom:</strong> @Model.ReadOnLoom</div>
+        <div class="col-md-3"><strong>Dent:</strong> @Model.Dent</div>
+    </div>
+</fieldset>
+
+<fieldset class="border p-3 rounded mb-4">
+    <legend class="float-none w-auto px-2 fw-semibold text-primary">Derived Details</legend>
+    <div class="row g-3">
+        <div class="col-md-3"><strong>Warp Ends / Beam:</strong> @Model.WarpEndsPerBeam</div>
+        <div class="col-md-3"><strong>Warp Weight:</strong> @Model.WarpWeight</div>
+        <div class="col-md-3"><strong>Ends / Dent:</strong> @Model.EndsPerDent</div>
+        <div class="col-md-3"><strong>GSM:</strong> @Model.GSM</div>
+    </div>
+</fieldset>
+
+<fieldset class="border p-3 rounded mb-4">
+    <legend class="float-none w-auto px-2 fw-semibold text-primary">Stock Information</legend>
+    <div class="row g-3">
+        <div class="col-md-3"><strong>Stock Quantity:</strong> @Model.StockQuantity</div>
+        <div class="col-md-3"><strong>Warehouse Name:</strong> @Model.WarehouseName</div>
+    </div>
+</fieldset>
+
+<a asp-action="Index" class="btn btn-secondary">← Back to List</a>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">✏️ Edit</a>

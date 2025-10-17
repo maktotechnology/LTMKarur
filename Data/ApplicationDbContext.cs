@@ -11,4 +11,10 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<AppUser> Users { get; set; }
+    public DbSet<ItemMaster> ItemMasters { get; set; }
+
+    public DbSet<CountMaster> CountMasters { get; set; }
+    public DbSet<Certification> Certifications { get; set; }
+
+
 }

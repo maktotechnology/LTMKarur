@@ -1,0 +1,109 @@
+@model LTMKarur.Models.ItemMaster
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Edit Item Master";
+}
+
+<h4 class="mb-3">Edit Item Master</h4>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Section 1: Technical Details -->
+    <fieldset class="border p-3 rounded mb-4">
+        <legend class="float-none w-auto px-2 fw-semibold text-primary">Technical Details</legend>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="WarpCount" class="form-label"></label>
+                <input asp-for="WarpCount" class="form-control" />
+                <span asp-validation-for="WarpCount" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="WeftCount" class="form-label"></label>
+                <input asp-for="WeftCount" class="form-control" />
+                <span asp-validation-for="WeftCount" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="EPI" class="form-label"></label>
+                <input asp-for="EPI" class="form-control" />
+                <span asp-validation-for="EPI" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="PPI" class="form-label"></label>
+                <input asp-for="PPI" class="form-control" />
+                <span asp-validation-for="PPI" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Width" class="form-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Design" class="form-label"></label>
+                <input asp-for="Design" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Crimp" class="form-label"></label>
+                <input asp-for="Crimp" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Input" class="form-label"></label>
+                <input asp-for="Input" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="ReadOnLoom" class="form-label"></label>
+                <input asp-for="ReadOnLoom" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Dent" class="form-label"></label>
+                <input asp-for="Dent" class="form-control" />
+            </div>
+        </div>
+    </fieldset>
+
+    <!-- Section 2: Derived Details -->
+    <fieldset class="border p-3 rounded mb-4">
+        <legend class="float-none w-auto px-2 fw-semibold text-primary">Derived Details</legend>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="WarpEndsPerBeam" class="form-label"></label>
+                <input asp-for="WarpEndsPerBeam" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="WarpWeight" class="form-label"></label>
+                <input asp-for="WarpWeight" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="EndsPerDent" class="form-label"></label>
+                <input asp-for="EndsPerDent" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="GSM" class="form-label"></label>
+                <input asp-for="GSM" class="form-control" />
+            </div>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">💾 Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

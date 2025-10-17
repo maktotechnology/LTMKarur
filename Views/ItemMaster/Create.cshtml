@@ -1,0 +1,122 @@
+@model LTMKarur.Models.ItemMaster
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Item Master";
+}
+
+<h4 class="mb-3">Create Item Master</h4>
+
+<form asp-action="Create" method="post">
+    <fieldset class="border p-3 rounded mb-4">
+        <legend class="float-none w-auto px-2 fw-semibold text-primary">Technical Details</legend>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="WarpCount" class="form-label"></label>
+                <input asp-for="WarpCount" id="warpCount" class="form-control" placeholder="Type Warp Count..." />
+                <span asp-validation-for="WarpCount" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="WeftCount" class="form-label"></label>
+                <input asp-for="WeftCount" id="weftCount" class="form-control" placeholder="Type Weft Count..." />
+                <span asp-validation-for="WeftCount" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="EPI" class="form-label"></label>
+                <input asp-for="EPI" class="form-control" />
+                <span asp-validation-for="EPI" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="PPI" class="form-label"></label>
+                <input asp-for="PPI" class="form-control" />
+                <span asp-validation-for="PPI" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Width" class="form-label"></label>
+                <input asp-for="Width" class="form-control" />
+                <span asp-validation-for="Width" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Design" class="form-label"></label>
+                <input asp-for="Design" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Crimp" class="form-label"></label>
+                <input asp-for="Crimp" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Input" class="form-label"></label>
+                <input asp-for="Input" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="ReadOnLoom" class="form-label"></label>
+                <input asp-for="ReadOnLoom" class="form-control" />
+            </div>
+
+            <div class="col-md-3">
+                <label asp-for="Dent" class="form-label"></label>
+                <input asp-for="Dent" class="form-control" />
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="border p-3 rounded mb-4">
+        <legend class="float-none w-auto px-2 fw-semibold text-primary">Derived Details</legend>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label asp-for="WarpEndsPerBeam" class="form-label"></label>
+                <input asp-for="WarpEndsPerBeam" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="WarpWeight" class="form-label"></label>
+                <input asp-for="WarpWeight" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="EndsPerDent" class="form-label"></label>
+                <input asp-for="EndsPerDent" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="GSM" class="form-label"></label>
+                <input asp-for="GSM" class="form-control" />
+            </div>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">💾 Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" rel="stylesheet" />
+
+    <script>
+        // Warp Count AutoSuggestion
+        $("#warpCount").autocomplete({
+            source: function (request, response) {
+                $.getJSON('/ItemMaster/GetCounts', { term: request.term }, response);
+            },
+            minLength: 1
+        });
+
+        // Weft Count AutoSuggestion
+        $("#weftCount").autocomplete({
+            source: function (request, response) {
+                $.getJSON('/ItemMaster/GetCounts', { term: request.term }, response);
+            },
+            minLength: 1
+        });
+    </script>
+}

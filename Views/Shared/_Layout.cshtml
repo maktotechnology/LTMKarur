@@ -4,28 +4,71 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>@ViewData["Title"] - LTMKarur</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">LTMKarur</a>
+            <!-- Brand -->
+            <a class="navbar-brand fw-bold" href="/">LTMKarur</a>
 
-            <div class="d-flex ms-auto">
-                @if (User.Identity?.IsAuthenticated ?? false)
-                {
-                    <!-- Plain HTML form to avoid any tag-helper weirdness -->
-                    <form action="/Account/Logout" method="post" style="margin:0;">
-                        @Html.AntiForgeryToken()
-                        <button type="submit" id="navLogoutBtn" class="btn btn-light btn-sm text-primary">Logout</button>
-                    </form>
-                }
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Right -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+
+                    <!-- Settings Dropdown -->
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            ⚙️ Settings
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
+                            <li><a class="dropdown-item fw-semibold text-secondary" href="#">🧾 Masters</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="Certification" asp-action="Index">
+                                    🏆 Certifications
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="CountMaster" asp-action="Index">
+                                    🔢 Counts
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Logout Button -->
+                    @if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-light btn-sm text-primary">Logout</button>
+                        </form>
+                    }
+                </ul>
             </div>
         </div>
     </nav>
 
-    <main class="container my-4">
+    <!-- Main Content -->
+    <div class="container my-4">
         @RenderBody()
-    </main>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+
+
 </body>
 </html>

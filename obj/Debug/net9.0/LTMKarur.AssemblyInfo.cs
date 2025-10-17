@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LTMKarur")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cef30a60f2484ca55def56d3be01e85d8d9c3b7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ea3736753dff07095e3a7581a683528138ee176")]
 [assembly: System.Reflection.AssemblyProductAttribute("LTMKarur")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LTMKarur")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

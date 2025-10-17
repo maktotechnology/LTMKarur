@@ -32,10 +32,46 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/vivek/Files/dotnet/LTMKarur/Views/Certification/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2VydGlmaWNhdGlvbi9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/CountMaster/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRNYXN0ZXIvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/vivek/Files/dotnet/LTMKarur/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/vivek/Files/dotnet/LTMKarur/Views/ItemMaster/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbU1hc3Rlci9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/ItemMaster/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbU1hc3Rlci9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/ItemMaster/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbU1hc3Rlci9FZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/ItemMaster/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbU1hc3Rlci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/vivek/Files/dotnet/LTMKarur/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

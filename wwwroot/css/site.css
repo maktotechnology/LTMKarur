@@ -29,3 +29,17 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+    .pagination .page-link {
+        color: #0d6efd;
+    }
+    .pagination .active .page-link {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+.dropdown-item {
+            font-size: 0.95rem;
+        }
+        .dropdown-item:hover {
+            background-color: #f1f1f1;
+        }
