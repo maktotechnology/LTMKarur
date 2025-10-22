@@ -1,0 +1,13 @@
+@model LTMKarur.Models.CustomerMaster
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Customer Details";
+}
+
+<h4 class="mb-3">Customer Details</h4>
+<div class="card p-3">
+    <p><strong>Customer Name:</strong> @Model.CustomerName</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">← Back</a>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary mt-3">✏️ Edit</a>

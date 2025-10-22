@@ -121,7 +121,6 @@
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/scopedcss/bundle/LTMKarur.styles.css
-/Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/compressed/58i8ji470u-2wbqr2ay3h.gz
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/compressed/j82og1apoz-61n19gt1b8.gz
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/compressed/e1viqfpubq-xtxxf3hu2r.gz
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/compressed/deyta0hkso-bqjiyaj88i.gz
@@ -193,3 +192,4 @@
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/LTMKarur.pdb
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/LTMKarur.genruntimeconfig.cache
 /Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/ref/LTMKarur.dll
+/Users/vivek/Files/dotnet/LTMKarur/obj/Debug/net9.0/compressed/58i8ji470u-7hqgqbuki1.gz

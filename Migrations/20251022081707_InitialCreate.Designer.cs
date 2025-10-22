@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LTMKarur.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251016181230_AddFullItemFields")]
-    partial class AddFullItemFields
+    [Migration("20251022081707_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,7 +46,50 @@ namespace LTMKarur.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("LTMKarur.Models.Item", b =>
+            modelBuilder.Entity("LTMKarur.Models.Certification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Certifications");
+                });
+
+            modelBuilder.Entity("LTMKarur.Models.CountMaster", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CountName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(150)
+                        .HasColumnType("character varying(150)");
+
+                    b.Property<string>("UOM")
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CountMasters");
+                });
+
+            modelBuilder.Entity("LTMKarur.Models.ItemMaster", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,46 +104,55 @@ namespace LTMKarur.Migrations
                         .HasColumnType("numeric");
 
                     b.Property<string>("Design")
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)");
+                        .HasColumnType("text");
+
+                    b.Property<decimal>("EPI")
+                        .HasColumnType("numeric");
 
                     b.Property<decimal?>("EndsPerDent")
                         .HasColumnType("numeric");
 
-                    b.Property<int>("EndsPerInch")
-                        .HasColumnType("integer");
+                    b.Property<decimal?>("GSM")
+                        .HasColumnType("numeric");
 
-                    b.Property<string>("ItemName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("character varying(200)");
+                    b.Property<decimal?>("Input")
+                        .HasColumnType("numeric");
 
-                    b.Property<int>("PicksPerInch")
-                        .HasColumnType("integer");
+                    b.Property<decimal>("PPI")
+                        .HasColumnType("numeric");
 
                     b.Property<decimal?>("ReadOnLoom")
                         .HasColumnType("numeric");
 
+                    b.Property<decimal?>("StockQuantity")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("WarehouseName")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
                     b.Property<string>("WarpCount")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
-                    b.Property<int?>("WarpEndsPerBeam")
-                        .HasColumnType("integer");
+                    b.Property<decimal?>("WarpEndsPerBeam")
+                        .HasColumnType("numeric");
 
                     b.Property<decimal?>("WarpWeight")
                         .HasColumnType("numeric");
 
                     b.Property<string>("WeftCount")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(20)
+                        .HasColumnType("character varying(20)");
 
                     b.Property<decimal>("Width")
                         .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Items");
+                    b.ToTable("ItemMasters");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,146 @@
+@model LTMKarur.Models.SalesOrder
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Create Sales Order";
+}
+
+<h4 class="mb-3">Create Sales Order</h4>
+
+<form asp-action="Create" method="post" id="salesOrderForm">
+    @Html.AntiForgeryToken()
+
+    <!-- Section 1: Order Details -->
+    <fieldset class="border p-3 rounded mb-4">
+        <legend class="float-none w-auto px-2 fw-semibold text-primary">Details</legend>
+        <div class="row g-3">
+            <div class="col-md-2">
+                <label asp-for="SeriesID" class="form-label"></label>
+                <input asp-for="SeriesID" class="form-control" readonly />
+            </div>
+            <div class="col-md-3">
+                <label asp-for="CustomerPO" class="form-label"></label>
+                <input asp-for="CustomerPO" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label asp-for="CustomerId" class="form-label">Customer</label>
+                <select asp-for="CustomerId" class="form-select"
+                        asp-items="@(ViewBag.Customers != null
+                            ? new SelectList(ViewBag.Customers, "Id", "CustomerName")
+                            : new List<SelectListItem>())">
+                    <option value="">-- Select Customer --</option>
+                </select>
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+            <div class="col-md-2">
+                <label asp-for="OrderDate" class="form-label">Order Date</label>
+                <input asp-for="OrderDate" type="date" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <label asp-for="DeliveryDate" class="form-label">Delivery Date</label>
+                <input asp-for="DeliveryDate" type="date" class="form-control" />
+            </div>
+        </div>
+    </fieldset>
+    <!-- Section 3: Certifications -->
+<fieldset class="border p-3 rounded mb-4">
+    <legend class="float-none w-auto px-2 fw-semibold text-primary">Certifications</legend>
+    <div class="row">
+        @if (ViewBag.Certifications != null && ((List<LTMKarur.Models.Certification>)ViewBag.Certifications).Any())
+        {
+            foreach (var cert in (List<LTMKarur.Models.Certification>)ViewBag.Certifications)
+            {
+                <div class="col-md-3 form-check mb-2">
+                    <input type="checkbox" class="form-check-input" name="selectedCertifications" value="@cert.Id" id="cert_@cert.Id" />
+                    <label class="form-check-label" for="cert_@cert.Id">@cert.Name</label>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="text-muted">No certifications found.</p>
+        }
+    </div>
+</fieldset>
+
+    <!-- Section 2: Items -->
+    <fieldset class="border p-3 rounded mb-4">
+        <legend class="float-none w-auto px-2 fw-semibold text-primary">Item Details</legend>
+
+        <table class="table table-bordered" id="itemTable">
+            <thead class="table-light">
+                <tr>
+                    <th>S.No</th>
+                    <th>Item</th>
+                    <th>UOM</th>
+                    <th>Delivery Date</th>
+                    <th>Quantity</th>
+                    <th>Rate</th>
+                    <th>Amount (INR)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button type="button" id="addRow" class="btn btn-outline-primary btn-sm">➕ Add Item</button>
+
+        <div class="row mt-4">
+            <div class="col-md-6 text-end fw-bold">Total Quantity:</div>
+            <div class="col-md-2">
+                <input type="text" id="totalQty" class="form-control text-end" readonly />
+            </div>
+            <div class="col-md-2 text-end fw-bold">Total Amount (INR):</div>
+            <div class="col-md-2">
+                <input type="text" id="totalAmt" class="form-control text-end" readonly />
+            </div>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">💾 Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+let rowIndex = 0;
+
+function calculateTotals() {
+    let totalQty = 0, totalAmt = 0;
+    $("#itemTable tbody tr").each(function () {
+        const qty = parseFloat($(this).find(".qty").val()) || 0;
+        const rate = parseFloat($(this).find(".rate").val()) || 0;
+        const amount = qty * rate;
+        $(this).find(".amount").val(amount.toFixed(2));
+        totalQty += qty;
+        totalAmt += amount;
+    });
+    $("#totalQty").val(totalQty.toFixed(2));
+    $("#totalAmt").val(totalAmt.toFixed(2));
+}
+
+$("#addRow").click(function () {
+    rowIndex++;
+    const row = `
+    <tr>
+        <td>${rowIndex}</td>
+        <td><input name="items[${rowIndex}].ItemName" class="form-control" required /></td>
+        <td><input name="items[${rowIndex}].UOM" class="form-control" /></td>
+        <td><input name="items[${rowIndex}].ItemDeliveryDate" type="date" class="form-control" /></td>
+        <td><input name="items[${rowIndex}].Quantity" class="form-control qty" type="number" step="0.01" /></td>
+        <td><input name="items[${rowIndex}].Rate" class="form-control rate" type="number" step="0.01" /></td>
+        <td><input name="items[${rowIndex}].Amount" class="form-control amount" readonly /></td>
+        <td><button type="button" class="btn btn-danger btn-sm remove">🗑️</button></td>
+    </tr>`;
+    $("#itemTable tbody").append(row);
+});
+
+$(document).on("input", ".qty, .rate", calculateTotals);
+
+$(document).on("click", ".remove", function () {
+    $(this).closest("tr").remove();
+    calculateTotals();
+});
+</script>
+}

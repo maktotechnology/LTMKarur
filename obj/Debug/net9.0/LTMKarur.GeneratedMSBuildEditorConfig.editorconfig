@@ -40,6 +40,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ291bnRNYXN0ZXIvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/vivek/Files/dotnet/LTMKarur/Views/CustomerMaster/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJNYXN0ZXIvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/CustomerMaster/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJNYXN0ZXIvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/CustomerMaster/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJNYXN0ZXIvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/CustomerMaster/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXJNYXN0ZXIvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/vivek/Files/dotnet/LTMKarur/Views/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/vivek/Files/dotnet/LTMKarur/Views/ItemMaster/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSXRlbU1hc3Rlci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/vivek/Files/dotnet/LTMKarur/Views/SalesOrder/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2FsZXNPcmRlci9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/vivek/Files/dotnet/LTMKarur/Views/Shared/_Layout.cshtml]
